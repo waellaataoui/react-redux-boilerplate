@@ -75,7 +75,9 @@ module.exports = (env) => {
     devServer: {
       contentBase: path.join(__dirname, "public"),
       historyApiFallback: true,
-      publicPath: "/dist/"
+      publicPath: "/dist/",
+      open: true,
+      openPage: ""
     }
   };
 };
