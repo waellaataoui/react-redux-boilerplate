@@ -2,13 +2,15 @@ import "./loginPage.scss";
 
 import React from "react";
 import { connect } from "react-redux";
+import Header from "src/components/Header";
 import { startLogin } from "src/state/actions/auth";
 
 export const LoginPage = ({ startLogin }) => (
-  <div className="box-layout">
-    <div className="box-layout__box">
-      <h1 className="box-layout__title">Boilerplate</h1>
-      <p>Tag line for app.</p>
+  <div className="wrapper">
+    <Header show={true}></Header>
+    <div className="box centered">
+      <h1 className="box__title">Quotelify</h1>
+      <p>Find The Best Quotes For You</p>
       <button className="button" onClick={startLogin}>
         Login with Google
       </button>

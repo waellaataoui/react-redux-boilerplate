@@ -1,13 +1,32 @@
 @import "src/styles/base/variables";
 .header {
-  background: $dark-blue;
+  background: #44b7ad;
+  margin-bottom: $m-size;
+  @media (max-width: $desktop-breakpoint) {
+    margin-bottom: $l-size;
+  }
+}
+.transparent {
+  background: transparent;
+  .header__links > a {
+    color: black;
+    font-weight: 500;
+  }
+  .content-container {
+    max-width: 100%;
+    padding: 0 $l-size;
+  }
 }
 
 .header__content {
-  align-items: center;
   display: flex;
   justify-content: space-between;
-  padding: $s-size 0;
+  padding: $m-size 0;
+  @media (max-width: $desktop-breakpoint) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 .header__title {
@@ -15,5 +34,29 @@
   text-decoration: none;
   h1 {
     margin: 0;
+    font-family: "Kaushan Script", cursive;
+    font-weight: 400;
+    font-size: 4rem;
+  }
+}
+.header__links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  > * {
+    padding: 0 $m-size;
+  }
+
+  .active {
+    color: #fb0091 !important;
+  }
+  > *:hover {
+    color: #fb0091;
+  }
+  @media (max-width: $desktop-breakpoint) {
+    > * {
+      padding: $m-size $s-size;
+    }
   }
 }

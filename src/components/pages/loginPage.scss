@@ -1,23 +1,28 @@
 @import "src/styles/base/variables";
-.box-layout {
-  align-items: center;
-  background: url("/images/bg.jpg");
+.wrapper {
+  background: url("~src/images/bg.jpeg");
   background-size: cover;
-  display: flex;
   height: 100vh;
-  justify-content: center;
-  width: 100vw;
+  width: 100%;
+  position: relative;
 }
 
-.box-layout__box {
-  background: fade-out(white, 0.15);
-  border-radius: 3px;
+.box {
+  background: fade-out(white, 0.4);
+  border-radius: 1rem;
   padding: $l-size $m-size;
   text-align: center;
   width: 25rem;
+  // position: absolute;
+  // top: 50%;
+  // left: 50%;
+  // transform: translate(-50%, -50%);
+  @media (max-width: $desktop-breakpoint) {
+    top: 60%;
+  }
 }
 
-.box-layout__title {
+.box__title {
   margin: 0 0 $m-size 0;
   line-height: 1;
 }
