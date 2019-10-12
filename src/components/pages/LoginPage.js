@@ -9,8 +9,8 @@ export const LoginPage = ({ startLogin }) => (
   <div className="wrapper">
     <Header show={true}></Header>
     <div className="box centered">
-      <h1 className="box__title">Quotelify</h1>
-      <p>Find The Best Quotes For You</p>
+      <h1 className="box__title">App title</h1>
+      <p>app description</p>
       <button className="button" onClick={startLogin}>
         Login with Google
       </button>

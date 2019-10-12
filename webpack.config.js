@@ -73,9 +73,13 @@ module.exports = (env) => {
               }
             },
             {
+              loader: "resolve-url-loader"
+            },
+            {
               loader: "sass-loader",
               options: {
-                sourceMap: !isProduction
+                //sourceMap: !isProduction
+                sourceMap: true
               }
             }
           ]

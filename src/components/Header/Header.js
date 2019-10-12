@@ -3,13 +3,13 @@ import "./_header.scss";
 import React from "react";
 import { connect } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
-import { history } from "src/routers/AppRouter";
+import { withRouter } from "react-router-dom";
 import { startLogout } from "../../state/actions/auth";
 
 export const Header = (props) => {
   let jsx = null;
 
-  history.location.pathname !== "/login" || props.show //props.history.location.pathname if u use default history (must wrap component with WithRouter)
+  props.history.location.pathname !== "/login" || props.show
     ? (jsx = (
         <header className={props.show ? "header transparent" : "header"}>
           <div className="content-container">
@@ -53,7 +53,9 @@ const mapDispatchToProps = (dispatch) => ({
 const mapStateToProps = (state) => ({
   uid: state.auth.uid
 });
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Header);
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(Header)
+);
