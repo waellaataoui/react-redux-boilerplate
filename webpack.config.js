@@ -88,6 +88,28 @@ module.exports = (env) => {
           test: /\.(jpe?g|png|gif|ico)$/i,
           use: [
             {
+              loader: "image-webpack-loader",
+              options: {
+                mozjpeg: {
+                  // enabled: false
+                  // NOTE: mozjpeg is disabled as it causes errors in some Linux environments
+                  // Try enabling it in your environment by switching the config to:
+                  enabled: true,
+                  progressive: true
+                },
+                gifsicle: {
+                  interlaced: false
+                },
+                optipng: {
+                  optimizationLevel: 7
+                },
+                pngquant: {
+                  quality: "65-90",
+                  speed: 4
+                }
+              }
+            },
+            {
               loader: "file-loader",
               options: {
                 include: path.join(__dirname, "src"),
@@ -101,7 +123,8 @@ module.exports = (env) => {
     plugins: [
       new HtmlWebpackPlugin({
         template: "./src/index.html",
-        inject: true
+        inject: true,
+        favicon: "./src/images/favicon.png"
       }),
       new MiniCssExtractPlugin(),
       new webpack.DefinePlugin({
@@ -134,7 +157,10 @@ module.exports = (env) => {
       contentBase: path.join(__dirname, "dist"),
       historyApiFallback: true,
       open: true,
-      openPage: ""
+      openPage: "",
+      writeToDisk: (filePath) => {
+        return /\.(jpe?g|png|gif|ico)$/.test(filePath);
+      }
     }
   };
 };
