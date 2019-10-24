@@ -117,6 +117,15 @@ module.exports = (env) => {
               }
             }
           ]
+        },
+        {
+          test: /\.(ttf|eot|svg|gif|png)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+          include: "/src",
+          use: [
+            {
+              loader: "file-loader"
+            }
+          ]
         }
       ]
     },
